@@ -7,6 +7,8 @@ import java.util.Collection;
 /**
  * ENTERPRISE PROGRAMMING
  *
+ * 17/10/2016
+ *
  * @author hamzaghani
  * Interface providing methods for the CourseInfo Class
  *
