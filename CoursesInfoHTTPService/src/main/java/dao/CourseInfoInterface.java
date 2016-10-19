@@ -2,7 +2,7 @@ package dao;
 
 import model.CourseInfo;
 
-import java.util.Collection;
+import java.util.HashMap;
 
 /**
  * ENTERPRISE PROGRAMMING
@@ -16,6 +16,6 @@ import java.util.Collection;
  */
 public interface CourseInfoInterface {
     public void addCourse (CourseInfo cinfo);
-    public Collection listCourse ();
-    public Collection searchCourse(String searchStr);
+    public HashMap<String,CourseInfo> listCourse ();
+    public HashMap<String,CourseInfo> searchCourse(String searchStr);
 }
