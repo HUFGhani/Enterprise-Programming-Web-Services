@@ -5,20 +5,20 @@ package model;
  */
 public class CourseInfo {
 
-    String courseID, courseName, courseCredits, courseDuration,courseTutor;
+    private String courseID, courseName, courseTutor;
+    private int  courseCredits, courseDuration;
 
-    public CourseInfo(){
+    public CourseInfo() {
         super();
 
     }
 
-    public CourseInfo(String courseID, String courseName, String courseCredits, String courseDuration, String courseTutor) {
-        super();
+    public CourseInfo(String courseID, String courseName, String courseTutor, int courseCredits, int courseDuration) {
         this.courseID = courseID;
         this.courseName = courseName;
+        this.courseTutor = courseTutor;
         this.courseCredits = courseCredits;
         this.courseDuration = courseDuration;
-        this.courseTutor = courseTutor;
     }
 
     public String getCourseID() {
@@ -39,24 +39,6 @@ public class CourseInfo {
         return this;
     }
 
-    public String getCourseCredits() {
-        return courseCredits;
-    }
-
-    public CourseInfo setCourseCredits(String courseCredits) {
-        this.courseCredits = courseCredits;
-        return this;
-    }
-
-    public String getCourseDuration() {
-        return courseDuration;
-    }
-
-    public CourseInfo setCourseDuration(String courseDuration) {
-        this.courseDuration = courseDuration;
-        return this;
-    }
-
     public String getCourseTutor() {
         return courseTutor;
     }
@@ -66,14 +48,32 @@ public class CourseInfo {
         return this;
     }
 
+    public int getCourseCredits() {
+        return courseCredits;
+    }
+
+    public CourseInfo setCourseCredits(int courseCredits) {
+        this.courseCredits = courseCredits;
+        return this;
+    }
+
+    public int getCourseDuration() {
+        return courseDuration;
+    }
+
+    public CourseInfo setCourseDuration(int courseDuration) {
+        this.courseDuration = courseDuration;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "CourseInfo{" +
                 "courseID='" + courseID + '\'' +
                 ", courseName='" + courseName + '\'' +
-                ", courseCredits='" + courseCredits + '\'' +
-                ", courseDuration='" + courseDuration + '\'' +
                 ", courseTutor='" + courseTutor + '\'' +
+                ", courseCredits=" + courseCredits +
+                ", courseDuration=" + courseDuration +
                 '}';
     }
 }
