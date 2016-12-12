@@ -35,8 +35,8 @@ public class CourseInfoDAO implements CourseInfoInterface {
             String idKey = datastoreEntity.getKey().toString();
             String id = idKey.substring(idKey.indexOf("(") + 1, idKey.indexOf(")"));
             String courseName = datastoreEntity.getProperty("CourseName").toString();
-            int couresCredits = (int) datastoreEntity.getProperty("CouresCredits");
-            int courseDuration = (int) datastoreEntity.getProperty("CourseDuration");
+            String couresCredits = datastoreEntity.getProperty("CouresCredits").toString();
+            String courseDuration = datastoreEntity.getProperty("CourseDuration").toString();
             String courseTutor = datastoreEntity.getProperty("CourseTutor").toString();
 
             courseInfoMapData.put(id, new CourseInfo(id, courseName, courseTutor, couresCredits, courseDuration));

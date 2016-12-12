@@ -1,19 +1,28 @@
 package model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+import java.awt.print.Book;
+
 /**
  * Created by hamzaghani on 17/10/2016.
  */
+
+@XmlRootElement
+@XmlType(propOrder = { "courseID", "courseName", "courseTutor", "courseCredits", "courseDuration"})
 public class CourseInfo {
 
-    private String courseID, courseName, courseTutor;
-    private int  courseCredits, courseDuration;
+
+     String courseID, courseName, courseTutor,courseCredits, courseDuration;;
+
 
     public CourseInfo() {
         super();
 
     }
 
-    public CourseInfo(String courseID, String courseName, String courseTutor, int courseCredits, int courseDuration) {
+
+    public CourseInfo(String courseID, String courseName, String courseTutor, String courseCredits, String courseDuration) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.courseTutor = courseTutor;
@@ -48,20 +57,20 @@ public class CourseInfo {
         return this;
     }
 
-    public int getCourseCredits() {
+    public String getCourseCredits() {
         return courseCredits;
     }
 
-    public CourseInfo setCourseCredits(int courseCredits) {
+    public CourseInfo setCourseCredits(String courseCredits) {
         this.courseCredits = courseCredits;
         return this;
     }
 
-    public int getCourseDuration() {
+    public String getCourseDuration() {
         return courseDuration;
     }
 
-    public CourseInfo setCourseDuration(int courseDuration) {
+    public CourseInfo setCourseDuration(String courseDuration) {
         this.courseDuration = courseDuration;
         return this;
     }
