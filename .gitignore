@@ -1,10 +1,10 @@
 .DS_Store
-
+*appengine-generated/
 CoursesInfoHTTPService/target/
 CoursesInfoHTTPService/.idea/
 
 *.class
-
+*.iml
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

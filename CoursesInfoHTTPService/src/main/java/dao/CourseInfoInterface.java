@@ -16,6 +16,8 @@ import java.util.HashMap;
  */
 public interface CourseInfoInterface {
     public void addCourse (CourseInfo cinfo);
-    public HashMap<String,CourseInfo> listCourse ();
-    public HashMap<String,CourseInfo> searchCourse(String searchStr);
+    public abstract HashMap<String,CourseInfo> listCourse ();
+    public abstract HashMap<String,CourseInfo> searchCourse(String searchStr);
+
+
 }
