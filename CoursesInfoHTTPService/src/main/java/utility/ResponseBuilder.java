@@ -1,10 +1,15 @@
-package builder;
+package utility;
 
 import com.google.gson.Gson;
 import dao.CourseInfoDAO;
 import dao.CourseInfoInterface;
+import model.Course;
 import model.CourseInfo;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,32 +32,33 @@ public class ResponseBuilder {
 
     public String buildXMLResponse(HashMap<String, CourseInfo> courseInfoList) {
 
+
+        Course course = new Course();
         for (CourseInfo info : courseInfoList.values()) {
             courseInfo.add(info);
 
+            course.setCourseInfos(courseInfo);
+        }
+        try {
 
+
+        JAXBContext jaxbContext = JAXBContext.newInstance(Course.class);
+        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+        StringWriter sw = new StringWriter();
+
+        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+        jaxbMarshaller.marshal(course, sw);
+
+            xmlString = sw.toString();
+
+
+        } catch (JAXBException e){
+            System.out.println(e);
         }
 
-        String sortedDataText = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-        sortedDataText = "<courses>\n";
-        for (int i = 0; i < courseInfo.size(); i++) {
-
-            sortedDataText += "\t<course>\n";
-            sortedDataText += "\t\t<id>" + courseInfo.get(i).getCourseID()
-                    + "</id>\n";
-            sortedDataText += "\t\t<title>" + courseInfo.get(i).getCourseName()
-                    + "</title>\n";
-            sortedDataText += "\t\t<tutor>" + courseInfo.get(i).getCourseTutor()
-                    + "</tutor>\n";
-            sortedDataText += "\t\t<credits>" + courseInfo.get(i).getCourseCredits()
-                    + "</credits>\n";
-            sortedDataText += "\t\t<duration>" + courseInfo.get(i).getCourseDuration()
-                    + "</duration>\n";
-            sortedDataText += "\t</course>";
-            sortedDataText += "\n";
-
-        }
-        return sortedDataText += "</courses>";
+        return xmlString;
     }
 
     public String buildJSONResponse(HashMap<String, CourseInfo> courseInfoList) {

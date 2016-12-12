@@ -1,5 +1,6 @@
 .DS_Store
 *appengine-generated/
+*local_db.bin
 CoursesInfoHTTPService/target/
 CoursesInfoHTTPService/.idea/
 

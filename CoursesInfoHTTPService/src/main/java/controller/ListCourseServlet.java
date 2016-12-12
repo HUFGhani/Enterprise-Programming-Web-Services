@@ -1,6 +1,6 @@
 package controller;
 
-import builder.ResponseBuilder;
+import utility.ResponseBuilder;
 import dao.CourseInfoDAO;
 import dao.CourseInfoInterface;
 import model.CourseInfo;
