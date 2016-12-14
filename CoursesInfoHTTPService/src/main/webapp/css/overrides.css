@@ -4,3 +4,7 @@ h3{
 #result-region{
     text-align: center
 }
+
+table, th, tr, td{
+    border: solid 1px black;
+}
