@@ -93,8 +93,7 @@ public class ResponseBuilder {
                     + "#||#";
             sortedDataText += " " + courseInfo.get(i).getCourseCredits()
                     + "#||#";
-            sortedDataText += " " + courseInfo.get(i).getCourseDuration()
-                    + "#||#";
+            sortedDataText += " " + courseInfo.get(i).getCourseDuration();
 
 
             if (courseInfo.size() - i > 1) {
