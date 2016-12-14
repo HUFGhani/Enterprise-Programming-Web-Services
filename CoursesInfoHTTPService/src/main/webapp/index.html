@@ -83,10 +83,16 @@
         <div class="find-course">
             <h3>Find by Course</h3>
             <form>
-                <label>Course name: <input type="text" id="course"></label>
+                <label>Course name: <input type="text"  id="course"></label>
+                <br>
+                <select id="format1">
+                    <option VALUE="json">JSON</option>
+                    <option VALUE="text">Text</option>
+                    <option VALUE="xml">XML</option>
+                </select>
                 <br>
                 <br>
-                <input type="button" value="Get Course information"/>
+                <input type="button" onclick="getCourse()" value="Get Course information"/>
             </form>
         </div>
         <hr>
@@ -100,6 +106,7 @@
                 <label>Credits: <input type="text" id="courseCredits"></label>
                 <br>
                 <label>Duration: <input type="text" id="courseDuration"></label>
+
                 <br>
                 <br>
                 <input type="button" value="Get Course information"/>

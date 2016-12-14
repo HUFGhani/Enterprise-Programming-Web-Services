@@ -21,6 +21,22 @@ function getAllCourse() {
 }
 
 function getCourse(){
+    var web_xml_address = "find-course";
+    var course = document.getElementById("course").value;
+    var format = document.getElementById("format1").value;
+    var address = web_xml_address +"?coursename="+ course+ "&format=" + format;
+
+    switch (format) {
+        case "json":
+            getJSONData(address);
+            break;
+        case "text":
+            getTextData(address);
+            break;
+        case "xml":
+            getXMlData(address)
+            break;
+    }
 
 }
 
