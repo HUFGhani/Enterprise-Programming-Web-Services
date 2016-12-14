@@ -20,7 +20,12 @@ function getAllCourse() {
     }
 }
 
-function getCourse() {
+function getCourse(){
+
+}
+
+
+function sendXMLData() {
 
 }
 
@@ -29,14 +34,14 @@ function getJSONData(address) {
     $.getJSON(address, function (result) {
         document.getElementById("result-region").innerHTML = "";
         finalTable = buildTables();
-        $.each(result, function (i, field) {
+        $.each(result, function (i, data) {
             //$("#result-region").append(field.courseID + " ");
             finalTable += '<tr>' +
-                '<td>' + field.courseID + '</td>' +
-                '<td>' + field.courseName + '</td>' +
-                '<td>' + field.courseTutor + '</td>' +
-                '<td>' + field.courseCredits + '</td>' +
-                '<td>' + field.courseDuration + '</td></tr>'
+                '<td>' + data.courseID + '</td>' +
+                '<td>' + data.courseName + '</td>' +
+                '<td>' + data.courseTutor + '</td>' +
+                '<td>' + data.courseCredits + '</td>' +
+                '<td>' + data.courseDuration + '</td></tr>'
         });
         finalTable += '</table>';
         $("#result-region").append(finalTable);
@@ -48,7 +53,23 @@ function getTextData(address) {
     $.get(address, {format: "text"}, function (data) {
         document.getElementById("result-region").innerHTML = "";
         finalTable = buildTables();
-
+        var rawdata = data.split(/\n+/);
+        var dataArray = new Array();
+        for (var i = 0; i < rawdata.length; i++) {
+            if (rawdata[i].length > 1) {
+                dataArray.push(rawdata[i].split("#||#"));
+            }
+        }
+        for (var i = 0; i < dataArray.length; i++) {
+            finalTable += "  <tr>";
+            var row = dataArray[i];
+            for (var j = 0; j < row.length; j++) {
+                finalTable += "<td>" + row[j] + "</td>";
+            }
+            finalTable += "</tr>";
+        }
+        finalTable += '</table>';
+        $("#result-region").append(finalTable);
     });
 }
 
@@ -76,7 +97,7 @@ function buildTables() {
 }
 
 function getTable(headings) {
-    var table = "<table border='1'>\n"
+    var table = "<table>\n"
         + getTableHeadings(headings);
     return table;
 }
