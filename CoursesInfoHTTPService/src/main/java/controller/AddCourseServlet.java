@@ -26,28 +26,39 @@ public class AddCourseServlet extends HttpServlet {
         super();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setStatus(HttpServletResponse.SC_OK);
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         JAXBContext jaxbContext;
         String xml = request.getParameter("xml");
-        PrintWriter out = response.getWriter();
-        final String responseMessage = "A Course has been successfully added to the GAE Datastore!";
-        CourseInfo courseInfo = null;
-        try{
 
+        PrintWriter out = response.getWriter();
+        final String responseMessage = "A Staff Member has been successfully added to the GAE Datastore!";
+        CourseInfo courseInfo = null;
+
+        xml = xml.replaceAll("<CourseInfo>","");
+        xml  = xml.replaceAll("</CourseInfo>","");
+
+
+        System.out.println(xml);
+
+        try {
             jaxbContext = JAXBContext.newInstance(CourseInfo.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             StringReader reader = new StringReader(xml);
             courseInfo = (CourseInfo) unmarshaller.unmarshal(reader);
-
-        }catch (JAXBException xmlParseException){xmlParseException.printStackTrace();}
-        try{
+        }
+        catch (JAXBException xmlParseException) {
+            // Catches JAXB Exception
+            xmlParseException.printStackTrace();
+        }
+        try {
             CourseInfoInterface courseInfoInterface = new CourseInfoDAO();
             courseInfoInterface.addCourse(courseInfo);
             out.print(responseMessage);
-        }catch (Exception e){
-            System.out.println(e);
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

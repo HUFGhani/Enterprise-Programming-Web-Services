@@ -5,6 +5,7 @@
 function getAllCourse() {
     var web_xml_address = "find-all-course";
     var format = document.getElementById("format").value;
+    var format = document.getElementById("format").value;
     var address = web_xml_address + "?format=" + format;
 
     switch (format) {
@@ -42,7 +43,34 @@ function getCourse(){
 
 
 function sendXMLData() {
+    var Name = document.getElementById("courseName").value;
+    var Tutor = document.getElementById("courseTutor").value;
+    var Credits = document.getElementById("courseCredits").value;
+    var Duration = document.getElementById("courseDuration").value;
 
+    var web_xml_address = "add-course";
+    var xmlstr = 'xml=<?xml version="1.0" encoding="UTF-8"?>';
+    xmlstr+= "<CourseInfo><course>";
+    xmlstr+= "<courseName>"+ Name + "</courseName>";
+    xmlstr+= "<courseTutor>"+Tutor +"</courseTutor>";
+    xmlstr+= "<courseCredits>"+Credits +"</courseCredits>";
+    xmlstr+= "<courseDuration>"+Duration +"</courseDuration>";
+    xmlstr+= "</course></CourseInfo>";
+
+    console.log(xmlstr);
+
+    $.ajax({
+        url: web_xml_address,
+        processData: false,
+        type: "POST",  // type should be POST
+        data: xmlstr, // send the string directly
+        success: function(response){
+            alert(response);
+        },
+        error: function(response) {
+            alert(response);
+        }
+    });
 }
 
 function getJSONData(address) {
@@ -51,7 +79,6 @@ function getJSONData(address) {
         document.getElementById("result-region").innerHTML = "";
         finalTable = buildTables();
         $.each(result, function (i, data) {
-            //$("#result-region").append(field.courseID + " ");
             finalTable += '<tr>' +
                 '<td>' + data.courseID + '</td>' +
                 '<td>' + data.courseName + '</td>' +
@@ -109,7 +136,7 @@ function getXMlData(address) {
 
 function buildTables() {
     var headings = ["Course ID", "Course", "Course Tutor", "Credits", "Duration"];
-    return getTable(headings);
+    return "<h3>Course Information:</h3>" + getTable(headings);
 }
 
 function getTable(headings) {

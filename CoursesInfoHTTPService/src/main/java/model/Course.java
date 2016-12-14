@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by hamzaghani on 12/12/2016.
  */
-@XmlRootElement(name = "courses")
+@XmlRootElement(name = "CourseInfo")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Course {
 

@@ -8,7 +8,7 @@ import java.awt.print.Book;
  * Created by hamzaghani on 17/10/2016.
  */
 
-@XmlRootElement
+@XmlRootElement(name="course")
 @XmlType(propOrder = { "courseID", "courseName", "courseTutor", "courseCredits", "courseDuration"})
 public class CourseInfo {
 
