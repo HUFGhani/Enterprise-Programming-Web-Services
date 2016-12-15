@@ -74,7 +74,7 @@ public class CourseInfoDAO implements CourseInfoInterface {
     private void addNewDatastoreEntries() {
 
         Entity course = new Entity("CourseDetails");
-        course.setProperty("CourseName","Computer Science");
+        course.setProperty("CourseName","BSc (Hons) Computer Science");
         course.setProperty("CouresCredits","300");
         course.setProperty("CourseDuration","3");
         course.setProperty("CourseTutor","Dr Johnathon Robson");
