@@ -8,10 +8,13 @@ import java.util.HashMap;
 /**
  * Created by hamzaghani on 15/12/2016.
  */
-public class CourseInfoDAO {
+public enum CourseInfoDAO {
+    instance;
 
     private static HashMap<String, CourseInfo> addCourseData;
     static DatastoreService dataStore = DatastoreServiceFactory.getDatastoreService();
+
+
 
 
     public HashMap<String, CourseInfo> queryGoogleDatastore() {
