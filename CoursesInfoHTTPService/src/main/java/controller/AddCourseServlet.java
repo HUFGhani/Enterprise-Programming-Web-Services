@@ -32,7 +32,7 @@ public class AddCourseServlet extends HttpServlet {
         String xml = request.getParameter("xml");
 
         PrintWriter out = response.getWriter();
-        final String responseMessage = "A Staff Member has been successfully added to the GAE Datastore!";
+        final String responseMessage = "A Course has been successfully added to the GAE Datastore!";
         CourseInfo courseInfo = null;
 
         xml = xml.replaceAll("<CourseInfo>","");
