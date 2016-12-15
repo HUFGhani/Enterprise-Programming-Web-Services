@@ -5,7 +5,6 @@
 function getAllCourse() {
     var web_xml_address = "find-all-course";
     var format = document.getElementById("format").value;
-    var format = document.getElementById("format").value;
     var address = web_xml_address + "?format=" + format;
 
     switch (format) {
@@ -135,7 +134,7 @@ function getXMlData(address) {
 }
 
 function buildTables() {
-    var headings = ["Course ID", "Course", "Course Tutor", "Credits", "Duration"];
+    var headings = ["Course ID", "Course", "Course Tutor", "Credits", "Duration (Year)"];
     return "<h3>Course Information:</h3>" + getTable(headings);
 }
 
