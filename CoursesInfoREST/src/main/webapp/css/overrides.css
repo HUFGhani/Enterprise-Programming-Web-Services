@@ -1,0 +1,14 @@
+h3{
+    text-align: center;
+}
+#result-region{
+    text-align: center
+}
+
+table, th, tr, td{
+    border: solid 1px black;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
