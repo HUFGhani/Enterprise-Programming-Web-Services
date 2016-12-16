@@ -5,13 +5,13 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <groupId>CoursesInfoREST</groupId>
-    <artifactId>CoursesInfoREST</artifactId>
-    <name>CoursesInfoREST</name>
+    <groupId>CoursesInfoRESTful</groupId>
+    <artifactId>CoursesInfoRESTful</artifactId>
+    <name>CoursesInfoRESTreful</name>
     <url>http://maven.apache.org</url>
 
     <properties>
-        <app.id>CoursesInfoREST</app.id>
+        <app.id>CoursesInfoRESTful</app.id>
         <jdk.version>1.7</jdk.version>
         <app.version>1</app.version>
         <appengine.version>1.9.42</appengine.version>
