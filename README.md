@@ -1,3 +1,4 @@
 # Enterprise-Programming-Web-Services
 
-coursesinfohttpservice.appspot.com  
+CoursesInfoHTTPService - coursesinfohttpservice.appspot.com  
+CoursesInfoREST - coursesinforestfull.appspot.com
