@@ -1,6 +1,7 @@
 package CoursesInfoREST.rest;
 
 import CoursesInfoREST.dao.CourseInfoDAO;
+import CoursesInfoREST.model.Course;
 import CoursesInfoREST.model.CourseInfo;
 
 import javax.ws.rs.GET;
@@ -18,16 +19,20 @@ import java.util.List;
  */
 @Path("/xml/course")
 public class CourseXML {
+
     @Context
     UriInfo uriInfo;
     @Context
     Request request;
 
+
     @GET
     @Produces(MediaType.TEXT_XML)
-    public List<CourseInfo> getCourseInfoBrowserText() {
+    public Course getCourseInfoBrowserText() {
+        Course course = new Course();
         List<CourseInfo> courseInfor = new ArrayList<CourseInfo>();
         courseInfor.addAll(CourseInfoDAO.instance.queryGoogleDatastore().values());
-        return courseInfor;
+        course.setCourseInfos(courseInfor);
+        return course;
     }
 }

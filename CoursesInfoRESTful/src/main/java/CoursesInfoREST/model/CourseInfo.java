@@ -4,16 +4,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Created by hamzaghani on 15/12/2016.
+ * Created by hamzaghani on 17/10/2016.
  */
 
-@XmlRootElement
-@XmlType(propOrder = {"courseID", "courseName", "courseTutor", "courseCredits", "courseDuration"})
+@XmlRootElement(name="course")
+@XmlType(propOrder = { "courseID", "courseName", "courseTutor", "courseCredits", "courseDuration"})
 public class CourseInfo {
 
 
-    String courseID, courseName, courseTutor, courseCredits, courseDuration;
-    ;
+     String courseID, courseName, courseTutor,courseCredits, courseDuration;;
 
 
     public CourseInfo() {
@@ -86,4 +85,3 @@ public class CourseInfo {
                 '}';
     }
 }
-
