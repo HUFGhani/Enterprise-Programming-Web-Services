@@ -37,12 +37,20 @@ public class FindCourseByNameServlet extends HttpServlet {
         HashMap<String, CourseInfo> courseInfoMap = courseInfoInterface.searchCourse(courseName);
 
         if (format.equalsIgnoreCase("json")) {
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
             responseData = dataFormatResponse.buildJSONResponse(courseInfoMap);
         }else if (format.equalsIgnoreCase("xml")) {
+            response.setContentType("text/xml");
+            response.setCharacterEncoding("UTF-8");
             responseData = dataFormatResponse.buildXMLResponse(courseInfoMap);
         }else if (format.equalsIgnoreCase("text")){
+            response.setContentType("text/text");
+            response.setCharacterEncoding("UTF-8");
             responseData = dataFormatResponse.buildTextResponse(courseInfoMap);
         }
+
+
         PrintWriter out = response.getWriter();
         out.print(responseData);
 
