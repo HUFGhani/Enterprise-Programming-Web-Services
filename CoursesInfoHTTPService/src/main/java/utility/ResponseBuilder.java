@@ -37,7 +37,7 @@ public class ResponseBuilder {
         for (CourseInfo info : courseInfoList.values()) {
             courseInfo.add(info);
 
-            course.setCourseInfos(courseInfo);
+            course.setCourseInfo(courseInfo);
         }
         try {
 
@@ -63,14 +63,17 @@ public class ResponseBuilder {
 
     public String buildJSONResponse(HashMap<String, CourseInfo> courseInfoList) {
 
+        Course course = new Course();
         for (CourseInfo info : courseInfoList.values()) {
             courseInfo.add(info);
+
         }
+        course.setCourseInfo(courseInfo);
 
         try {
 
             Gson gson = new Gson();
-            jsonString = gson.toJson(courseInfo);
+            jsonString = gson.toJson(course);
         } catch (Exception e) {
             System.out.println(e);
         }

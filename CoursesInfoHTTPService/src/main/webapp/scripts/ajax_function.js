@@ -77,13 +77,14 @@ function getJSONData(address) {
     $.getJSON(address, function (result) {
         document.getElementById("result-region").innerHTML = "";
         finalTable = buildTables();
-        $.each(result, function (i, data) {
-            finalTable += '<tr>' +
-                '<td>' + data.courseID + '</td>' +
-                '<td>' + data.courseName + '</td>' +
-                '<td>' + data.courseTutor + '</td>' +
-                '<td>' + data.courseCredits + '</td>' +
-                '<td>' + data.courseDuration + '</td></tr>'
+        $.each(result.CourseInfo, function (i, data) {
+                finalTable += '<tr>' +
+                    '<td>' + data.courseID + '</td>' +
+                    '<td>' + data.courseName + '</td>' +
+                    '<td>' + data.courseTutor + '</td>' +
+                    '<td>' + data.courseCredits + '</td>' +
+                    '<td>' + data.courseDuration + '</td></tr>'
+
         });
         finalTable += '</table>';
         $("#result-region").append(finalTable);
