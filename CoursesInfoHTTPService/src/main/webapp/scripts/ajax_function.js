@@ -3,6 +3,13 @@
  */
 
 function getAllCourse() {
+
+    $(document).ajaxStart(function () {
+        $("#wait").css("display", "block");
+    });
+    $(document).ajaxComplete(function () {
+        $("#wait").css("display", "none");
+    });
     var web_xml_address = "find-all-course";
     var format = document.getElementById("format").value;
     var address = web_xml_address + "?format=" + format;
@@ -20,11 +27,17 @@ function getAllCourse() {
     }
 }
 
-function getCourse(){
+function getCourse() {
+    $(document).ajaxStart(function () {
+        $("#wait").css("display", "block");
+    });
+    $(document).ajaxComplete(function () {
+        $("#wait").css("display", "none");
+    });
     var web_xml_address = "find-course";
     var course = document.getElementById("course").value;
     var format = document.getElementById("format1").value;
-    var address = web_xml_address +"?coursename="+ course+ "&format=" + format;
+    var address = web_xml_address + "?coursename=" + course + "&format=" + format;
 
     switch (format) {
         case "json":
@@ -42,6 +55,12 @@ function getCourse(){
 
 
 function sendXMLData() {
+    $(document).ajaxStart(function () {
+        $("#wait").css("display", "block");
+    });
+    $(document).ajaxComplete(function () {
+        $("#wait").css("display", "none");
+    });
     var Name = document.getElementById("courseName").value;
     var Tutor = document.getElementById("courseTutor").value;
     var Credits = document.getElementById("courseCredits").value;
@@ -49,12 +68,12 @@ function sendXMLData() {
 
     var web_xml_address = "add-course";
     var xmlstr = 'xml=<?xml version="1.0" encoding="UTF-8"?>';
-    xmlstr+= "<CourseInfo><course>";
-    xmlstr+= "<courseName>"+ Name + "</courseName>";
-    xmlstr+= "<courseTutor>"+Tutor +"</courseTutor>";
-    xmlstr+= "<courseCredits>"+Credits +"</courseCredits>";
-    xmlstr+= "<courseDuration>"+Duration +"</courseDuration>";
-    xmlstr+= "</course></CourseInfo>";
+    xmlstr += "<CourseInfo><course>";
+    xmlstr += "<courseName>" + Name + "</courseName>";
+    xmlstr += "<courseTutor>" + Tutor + "</courseTutor>";
+    xmlstr += "<courseCredits>" + Credits + "</courseCredits>";
+    xmlstr += "<courseDuration>" + Duration + "</courseDuration>";
+    xmlstr += "</course></CourseInfo>";
 
     console.log(xmlstr);
 
@@ -63,10 +82,10 @@ function sendXMLData() {
         processData: false,
         type: "POST",  // type should be POST
         data: xmlstr, // send the string directly
-        success: function(response){
+        success: function (response) {
             alert(response);
         },
-        error: function(response) {
+        error: function (response) {
             alert(response);
         }
     });
@@ -78,12 +97,12 @@ function getJSONData(address) {
         document.getElementById("result-region").innerHTML = "";
         finalTable = buildTables();
         $.each(result.CourseInfo, function (i, data) {
-                finalTable += '<tr>' +
-                    '<td>' + data.courseID + '</td>' +
-                    '<td>' + data.courseName + '</td>' +
-                    '<td>' + data.courseTutor + '</td>' +
-                    '<td>' + data.courseCredits + '</td>' +
-                    '<td>' + data.courseDuration + '</td></tr>'
+            finalTable += '<tr>' +
+                '<td>' + data.courseID + '</td>' +
+                '<td>' + data.courseName + '</td>' +
+                '<td>' + data.courseTutor + '</td>' +
+                '<td>' + data.courseCredits + '</td>' +
+                '<td>' + data.courseDuration + '</td></tr>'
 
         });
         finalTable += '</table>';
@@ -129,6 +148,7 @@ function getXMlData(address) {
                 '<td>' + $(this).find('courseCredits').text() + '</td>' +
                 '<td>' + $(this).find('courseDuration').text() + '</td></tr>'
         });
+
         finalTable += '</table>';
         $("#result-region").append(finalTable);
     });

@@ -12,3 +12,11 @@ table, th, tr, td{
 
 
 }
+#wait{
+    display:none;
+    width:auto;
+    height:auto;
+    position:absolute;
+    left:35%;
+    padding:2px;
+}
