@@ -30,64 +30,47 @@ public class ResponseBuilder {
 
     }
 
-    public String buildXMLResponse(HashMap<String, CourseInfo> courseInfoList) {
-
-
+    // wrap Course information in to XML format
+    private String buildXMLResponse(HashMap<String, CourseInfo> courseInfoList) {
         Course course = new Course();
         for (CourseInfo info : courseInfoList.values()) {
             courseInfo.add(info);
-
             course.setCourseInfo(courseInfo);
         }
         try {
-
-
         JAXBContext jaxbContext = JAXBContext.newInstance(Course.class);
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
         StringWriter sw = new StringWriter();
-
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
         jaxbMarshaller.marshal(course, sw);
-
             xmlString = sw.toString();
-
-
         } catch (JAXBException e){
             System.out.println(e);
         }
-
         return xmlString;
     }
 
-    public String buildJSONResponse(HashMap<String, CourseInfo> courseInfoList) {
+    private String buildJSONResponse(HashMap<String, CourseInfo> courseInfoList) {
 
         Course course = new Course();
         for (CourseInfo info : courseInfoList.values()) {
             courseInfo.add(info);
-
         }
         course.setCourseInfo(courseInfo);
-
         try {
-
             Gson gson = new Gson();
             jsonString = gson.toJson(course);
         } catch (Exception e) {
             System.out.println(e);
         }
-
         return jsonString;
     }
 
-    public String buildTextResponse(HashMap<String, CourseInfo> courseInfoList) {
+    private String buildTextResponse(HashMap<String, CourseInfo> courseInfoList) {
         for (CourseInfo info : courseInfoList.values()) {
             courseInfo.add(info);
         }
-
         for (int i = 0; i < courseInfo.size(); i++) {
-
             sortedDataText += " " + courseInfo.get(i).getCourseID()
                     + "#||#";
             sortedDataText += " " + courseInfo.get(i).getCourseName()
@@ -97,12 +80,34 @@ public class ResponseBuilder {
             sortedDataText += " " + courseInfo.get(i).getCourseCredits()
                     + "#||#";
             sortedDataText += " " + courseInfo.get(i).getCourseDuration();
-
-
             if (courseInfo.size() - i > 1) {
                 sortedDataText += " " + "\n\n\n";
             }
         }
         return sortedDataText;
+    }
+
+    public String dataFormat(String format, HashMap <String, CourseInfo> courseInfoMap){
+        String dataFormat = null;
+        if (format.equalsIgnoreCase("json")) {
+                 dataFormat = buildJSONResponse(courseInfoMap);
+        }else if (format.equalsIgnoreCase("xml")) {
+                   dataFormat = buildXMLResponse(courseInfoMap);
+        }else if (format.equalsIgnoreCase("text")){
+                  dataFormat =  buildXMLResponse(courseInfoMap);
+        }
+        return dataFormat;
+    }
+    public String responseContentType(String format){
+        String responseContentType = null;
+        if (format.equalsIgnoreCase("json")) {
+            responseContentType = "application/json";
+        }else if (format.equalsIgnoreCase("xml")) {
+            responseContentType =  "text/xml";
+        }else if (format.equalsIgnoreCase("text")){
+            responseContentType = "text/text";
+        }
+
+        return responseContentType;
     }
 }

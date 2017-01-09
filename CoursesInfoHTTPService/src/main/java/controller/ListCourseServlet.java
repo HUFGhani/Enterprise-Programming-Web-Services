@@ -31,20 +31,9 @@ public class ListCourseServlet extends HttpServlet {
         HashMap<String, CourseInfo> courseInfoMap = courseInfoInterface.listCourse();
         ResponseBuilder dataFormatResponse = new ResponseBuilder();
         String responseData = null;
-
-        if (format.equalsIgnoreCase("json")) {
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            responseData = dataFormatResponse.buildJSONResponse(courseInfoMap);
-        }else if (format.equalsIgnoreCase("xml")) {
-            response.setContentType("text/xml");
-            response.setCharacterEncoding("UTF-8");
-            responseData = dataFormatResponse.buildXMLResponse(courseInfoMap);
-        }else if (format.equalsIgnoreCase("text")){
-            response.setContentType("text/text");
-            response.setCharacterEncoding("UTF-8");
-            responseData = dataFormatResponse.buildTextResponse(courseInfoMap);
-        }
+        response.setContentType(dataFormatResponse.responseContentType(format));
+        response.setCharacterEncoding("UTF-8");
+        responseData = dataFormatResponse.dataFormat(format,courseInfoMap);
         PrintWriter out = response.getWriter();
         out.print(responseData);
     }
