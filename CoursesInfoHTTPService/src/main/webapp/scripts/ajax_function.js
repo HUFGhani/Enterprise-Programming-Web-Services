@@ -123,7 +123,7 @@ function getTextData(address) {
             }
         }
         for (var i = 0; i < dataArray.length; i++) {
-            finalTable += "  <tr>";
+            finalTable += " <tr>";
             var row = dataArray[i];
             for (var j = 0; j < row.length; j++) {
                 finalTable += "<td>" + row[j] + "</td>";
