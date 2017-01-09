@@ -94,7 +94,7 @@ public class ResponseBuilder {
         }else if (format.equalsIgnoreCase("xml")) {
                    dataFormat = buildXMLResponse(courseInfoMap);
         }else if (format.equalsIgnoreCase("text")){
-                  dataFormat =  buildXMLResponse(courseInfoMap);
+                  dataFormat =  buildTextResponse(courseInfoMap);
         }
         return dataFormat;
     }

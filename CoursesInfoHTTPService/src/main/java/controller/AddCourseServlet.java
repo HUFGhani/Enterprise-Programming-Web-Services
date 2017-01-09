@@ -22,7 +22,7 @@ import java.io.StringReader;
 @WebServlet(name = "AddCourseServlet")
 public class AddCourseServlet extends HttpServlet {
 
-    public AddCourseServlet(){
+    public AddCourseServlet() {
         super();
     }
 
@@ -35,8 +35,8 @@ public class AddCourseServlet extends HttpServlet {
         final String responseMessage = "A Course has been successfully added to the GAE Datastore!";
         CourseInfo courseInfo = null;
 
-        xml = xml.replaceAll("<CourseInfo>","");
-        xml  = xml.replaceAll("</CourseInfo>","");
+        xml = xml.replaceAll("<CourseInfo>", "");
+        xml = xml.replaceAll("</CourseInfo>", "");
 
 
         System.out.println(xml);
@@ -46,8 +46,7 @@ public class AddCourseServlet extends HttpServlet {
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             StringReader reader = new StringReader(xml);
             courseInfo = (CourseInfo) unmarshaller.unmarshal(reader);
-        }
-        catch (JAXBException xmlParseException) {
+        } catch (JAXBException xmlParseException) {
             // Catches JAXB Exception
             xmlParseException.printStackTrace();
         }
@@ -55,15 +54,10 @@ public class AddCourseServlet extends HttpServlet {
             CourseInfoInterface courseInfoInterface = new CourseInfoDAO();
             courseInfoInterface.addCourse(courseInfo);
             out.print(responseMessage);
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
-    }
 }

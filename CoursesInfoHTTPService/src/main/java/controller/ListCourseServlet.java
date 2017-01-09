@@ -19,9 +19,6 @@ import java.util.HashMap;
  */
 @WebServlet(name = "ListCourseServlet")
 public class ListCourseServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doGet(request,response);
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

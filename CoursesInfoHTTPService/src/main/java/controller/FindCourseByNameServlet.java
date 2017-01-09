@@ -19,9 +19,6 @@ import java.util.HashMap;
  */
 @WebServlet(name = "FindCourseByNameServlet")
 public class FindCourseByNameServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -32,7 +29,7 @@ public class FindCourseByNameServlet extends HttpServlet {
         CourseInfoInterface courseInfoInterface = new CourseInfoDAO();
         HashMap<String, CourseInfo> courseInfoMap = courseInfoInterface.searchCourse(courseName);
 
-        response.setContentType(dataFormatResponse.responseContentType(format));
+        response.setContentType(dataFormatResponse.responseContentType(format).toString());
         response.setCharacterEncoding("UTF-8");
         responseData = dataFormatResponse.dataFormat(format,courseInfoMap);
 
