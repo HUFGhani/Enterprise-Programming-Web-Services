@@ -50,7 +50,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">RESTful Web Service</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -70,6 +70,21 @@
         <br>
         <br>
         <button type="button" onclick="window.location.href='course-restful-service/text/course'" class="btn btn-success">Get Course Data in Text format</button>
+            <br>
+        <br>
+        <form action="course-restful-service/add/course" method="post">
+            <label>Course name: <input type="text" name="courseName"></label>
+            <br>
+            <label>Course Tutor: <input type="text" name="courseTutor"></label>
+            <br>
+            <label>Credits: <input type="text" name="courseCredits"></label>
+            <br>
+            <label>Duration: <input type="text" name="courseDuration"></label>
+
+            <br>
+            <br>
+            <input type="submit" value="Add Course" class="btn btn-success" />
+        </form>
     </div>
 </div> <!-- /container -->
 

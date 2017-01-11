@@ -28,7 +28,7 @@ public class CourseJSON {
     @Produces(MediaType.APPLICATION_JSON)
     public List<CourseInfo> getCourseInfoBrowserText() {
         List<CourseInfo> courseInfos = new ArrayList<CourseInfo>();
-        courseInfos.addAll(CourseInfoDAO.instance.queryGoogleDatastore().values());
+        courseInfos.addAll(CourseInfoDAO.instance.listCourse().values());
         return courseInfos;
     }
 }

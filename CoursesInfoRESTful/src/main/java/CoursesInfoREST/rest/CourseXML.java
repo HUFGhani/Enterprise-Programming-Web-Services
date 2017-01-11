@@ -31,7 +31,7 @@ public class CourseXML {
     public Course getCourseInfoBrowserText() {
         Course course = new Course();
         List<CourseInfo> courseInfor = new ArrayList<CourseInfo>();
-        courseInfor.addAll(CourseInfoDAO.instance.queryGoogleDatastore().values());
+        courseInfor.addAll(CourseInfoDAO.instance.listCourse().values());
         course.setCourseInfos(courseInfor);
         return course;
     }

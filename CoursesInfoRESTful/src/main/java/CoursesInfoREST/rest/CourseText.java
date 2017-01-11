@@ -27,7 +27,7 @@ public class CourseText {
     @Produces(MediaType.TEXT_PLAIN)
     public String getStaffInfoBrowserText() {
         List<CourseInfo> courseInfo = new ArrayList<CourseInfo>();
-        courseInfo.addAll(CourseInfoDAO.instance.queryGoogleDatastore().values());
+        courseInfo.addAll(CourseInfoDAO.instance.listCourse().values());
         return courseInfo.toString();
     }
 }

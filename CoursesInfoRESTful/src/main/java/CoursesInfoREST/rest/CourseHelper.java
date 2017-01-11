@@ -29,7 +29,7 @@ public class CourseHelper {
     @GET
     @Produces(MediaType.TEXT_XML)
     public CourseInfo getCourseInfoBrowserText() {
-        CourseInfo courseInfo = CourseInfoDAO.instance.queryGoogleDatastore().get(id);
+        CourseInfo courseInfo = CourseInfoDAO.instance.listCourse().get(id);
         if (courseInfo == null)
             throw new RuntimeException("Get: course with " + id + " not found");
         return courseInfo;

@@ -12,12 +12,13 @@ public enum CourseInfoDAO {
     instance;
 
     private static HashMap<String, CourseInfo> addCourseData;
-    static DatastoreService dataStore = DatastoreServiceFactory.getDatastoreService();
+    DatastoreService dataStore = DatastoreServiceFactory.getDatastoreService();
 
 
 
 
-    public HashMap<String, CourseInfo> queryGoogleDatastore() {
+    public HashMap<String, CourseInfo> listCourse() {
+
         addCourseData = new HashMap<String, CourseInfo>();
         Query query = new Query("CourseDetails");
         PreparedQuery googleQuery = dataStore.prepare(query);
@@ -39,6 +40,16 @@ public enum CourseInfoDAO {
         }
 
         return addCourseData;
+    }
+
+    public void addCourse(CourseInfo cinfo) {
+        Entity course = new Entity("CourseDetails");
+        course.setProperty("CourseName", cinfo.getCourseName());
+        course.setProperty("CouresCredits", cinfo.getCourseCredits());
+        course.setProperty("CourseDuration", cinfo.getCourseDuration());
+        course.setProperty("CourseTutor", cinfo.getCourseTutor());
+
+        dataStore.put(course);
     }
 
     private void addNewDatastoreEntries() {
