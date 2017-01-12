@@ -16,7 +16,7 @@ public enum CourseInfoDAO {
 
 
 
-
+// to get all course for dataStore
     public HashMap<String, CourseInfo> listCourse() {
 
         addCourseData = new HashMap<String, CourseInfo>();
@@ -41,7 +41,7 @@ public enum CourseInfoDAO {
 
         return addCourseData;
     }
-
+//to add data users input in to dataStore
     public void addCourse(CourseInfo cinfo) {
         Entity course = new Entity("CourseDetails");
         course.setProperty("CourseName", cinfo.getCourseName());
@@ -51,7 +51,7 @@ public enum CourseInfoDAO {
 
         dataStore.put(course);
     }
-
+     //add data to dataStore
     private void addNewDatastoreEntries() {
 
         System.out.println("IN the datastoreEntry Method");

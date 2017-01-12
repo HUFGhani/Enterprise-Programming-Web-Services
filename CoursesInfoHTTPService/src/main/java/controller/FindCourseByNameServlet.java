@@ -16,6 +16,7 @@ import java.util.HashMap;
 
 /**
  * Created by hamzaghani on 12/12/2016.
+ * this servlet is find coursename by name an send it to client 
  */
 @WebServlet(name = "FindCourseByNameServlet")
 public class FindCourseByNameServlet extends HttpServlet {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-211.09090909090912" y="581.0909090909091">CoursesInfoREST.rest.CourseJSON</node>
+    <node x="176.5" y="0.0">CoursesInfoREST.model.CourseInfo</node>
+    <node x="38.5" y="580.0">CoursesInfoREST.rest.CourseXML</node>
+    <node x="0.0" y="412.0">CoursesInfoREST.model.Course</node>
+    <node x="274.5454545454545" y="578.6363636363636">CoursesInfoREST.rest.CourseText</node>
+    <node x="275.0" y="368.0">CoursesInfoREST.dao.CourseInfoDAO</node>
+    <node x="708.0" y="0.0">CoursesInfoREST.rest.CourseHelper</node>
+    <node x="485.0" y="401.0">CoursesInfoREST.rest.CourseAdd</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="CoursesInfoREST.model.Course" target="CoursesInfoREST.model.CourseInfo">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="CoursesInfoREST.dao.CourseInfoDAO" target="CoursesInfoREST.model.CourseInfo">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="CoursesInfoREST.rest.CourseAdd" target="CoursesInfoREST.model.CourseInfo">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="CoursesInfoREST.rest.CourseXML" target="CoursesInfoREST.model.Course">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4074074074074074" x="463.72727272727275" y="388.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

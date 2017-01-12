@@ -16,6 +16,7 @@ import java.util.HashMap;
 
 /**
  * Created by hamzaghani on 12/12/2016.
+ *this servlet get all the Course and send it client
  */
 @WebServlet(name = "ListCourseServlet")
 public class ListCourseServlet extends HttpServlet {

@@ -15,7 +15,7 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
 
 
-
+//to add course to data store 
 @Path("add/course")
 public class CourseAdd {
     @Context

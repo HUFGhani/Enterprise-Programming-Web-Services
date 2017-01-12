@@ -6,6 +6,7 @@ import java.awt.print.Book;
 
 /**
  * Created by hamzaghani on 17/10/2016.
+ * getter and setters 
  */
 
 @XmlRootElement(name="course")

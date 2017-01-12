@@ -1,7 +1,7 @@
 /**
  * Created by hamzaghani on 14/12/2016.
  */
-
+//to get all data in whatever it been requested in
 function getAllCourse() {
 
     $(document).ajaxStart(function () {
@@ -26,7 +26,7 @@ function getAllCourse() {
             break;
     }
 }
-
+//to get data search data in whatever format been ask for
 function getCourse() {
     $(document).ajaxStart(function () {
         $("#wait").css("display", "block");
@@ -53,7 +53,7 @@ function getCourse() {
 
 }
 
-
+//sending xml to add to datastore
 function sendXMLData() {
     $(document).ajaxStart(function () {
         $("#wait").css("display", "block");
@@ -90,7 +90,7 @@ function sendXMLData() {
         }
     });
 }
-
+//to revice json data
 function getJSONData(address) {
     var finalTable;
     $.getJSON(address, function (result) {
@@ -110,6 +110,7 @@ function getJSONData(address) {
 
     });
 }
+//to recive text data
 function getTextData(address) {
     var finalTable;
     $.get(address, {format: "text"}, function (data) {
@@ -134,7 +135,7 @@ function getTextData(address) {
         $("#result-region").append(finalTable);
     });
 }
-
+//to revice xml data
 function getXMlData(address) {
     var finalTable;
     $.get(address, {format: "xml"}, function (data) {
@@ -154,6 +155,8 @@ function getXMlData(address) {
     });
 }
 
+
+// to build table stucture.
 function buildTables() {
     var headings = ["Course ID", "Course", "Course Tutor", "Credits", "Duration (Year)"];
     return "<h3>Course Information:</h3>" + getTable(headings);

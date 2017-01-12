@@ -18,6 +18,7 @@ import java.io.StringReader;
 
 /**
  * Created by hamzaghani on 12/12/2016.
+ *this servlet allows the users to add Course to Datastore
  */
 @WebServlet(name = "AddCourseServlet")
 public class AddCourseServlet extends HttpServlet {

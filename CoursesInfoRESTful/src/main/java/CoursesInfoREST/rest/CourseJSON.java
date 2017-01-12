@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by hamzaghani on 15/12/2016.
+ * to send json data
  */
 @Path("/json/course")
 public class CourseJSON {

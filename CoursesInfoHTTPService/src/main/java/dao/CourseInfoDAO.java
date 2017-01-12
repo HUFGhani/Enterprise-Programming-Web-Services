@@ -20,6 +20,7 @@ public class CourseInfoDAO implements CourseInfoInterface {
         return courseInfoMData;
     }
 
+    //to get all the data from the dataStore
     @Override
     public HashMap<String, CourseInfo> listCourse() {
         DatastoreService dataStore = DatastoreServiceFactory.getDatastoreService();
@@ -46,6 +47,7 @@ public class CourseInfoDAO implements CourseInfoInterface {
         return courseInfoMapData;
     }
 
+    //to add new course to the dataStore
     @Override
     public void addCourse(CourseInfo cinfo) {
         Entity course = new Entity("CourseDetails");
@@ -57,6 +59,7 @@ public class CourseInfoDAO implements CourseInfoInterface {
         dataStore.put(course);
     }
 
+    //to search for course within the dataStore
     @Override
     public HashMap<String, CourseInfo> searchCourse(String searchStr) {
         HashMap<String, CourseInfo> courseInfoMapData = getDatastoreEntries();

@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by hamzaghani on 12/12/2016.
+ * class which inchange of genarateing the data foramts in JSON, XML and Text String  
  */
 public class ResponseBuilder {
 

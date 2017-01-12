@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by hamzaghani on 15/12/2016.
+ * to send text data
  */
 @Path("/text/course")
 public class CourseText {

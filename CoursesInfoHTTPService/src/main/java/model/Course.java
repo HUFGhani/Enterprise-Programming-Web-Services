@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by hamzaghani on 12/12/2016.
+ * the model for which is use xml and json 
  */
 @XmlRootElement(name = "CourseInfo")
 @XmlAccessorType(XmlAccessType.FIELD)
